@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    width: 320px; /* スマートフォンでの表示を考慮 */
+    height: 500px;
+    background-color: #add8e6; /* 薄い水色の空 */
+    position: relative;
+    overflow: hidden;
+    border: 5px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#player {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    background-color: #ff6347; /* プレイヤーの色 */
+    border-radius: 50%; /* 丸いアバター */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: grab; /* ドラッグできることを示す */
+}
+
+.apple {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #6c3; /* リンゴの緑色 */
+    border-radius: 50%; /* 丸い形 */
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2), 
+                 inset 5px 5px 10px rgba(255, 255, 255, 0.3); /* 立体感を出す影 */
+    border: 2px solid #4a2; /* リンゴの縁 */
+    animation: spin 2s linear infinite; /* 少し回転させる */
+}
+
+/* リンゴのリアルさを増すための擬似要素 */
+.apple::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 5px;
+    height: 10px;
+    background-color: #8b4513; /* ヘタの色 */
+    border-radius: 2px;
+    transform: rotate(20deg);
+}
+
+.apple::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 18px;
+    width: 8px;
+    height: 5px;
+    background-color: #3cb371; /* 葉っぱの色 */
+    border-radius: 0 50% 50% 0;
+    transform: rotate(40deg);
+}
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+#game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#restart-button {
+    position: absolute;
+    top: calc(50% + 70px); /* メッセージの下に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
