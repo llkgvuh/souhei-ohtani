@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リンゴ避けゲーム</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="theme-color" content="#add8e6">
+</head>
+<body>
+  <div id="game-container">
+    <div id="player"></div>
+    <div id="score">スコア: 0</div>
+    <div id="game-over-message" class="hidden"></div>
+    <button id="restart-button" class="hidden">もう一度</button>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('ServiceWorker登録成功:', reg.scope))
+          .catch(err => console.log('ServiceWorker登録失敗:', err));
+      });
+    }
+  </script>
+</body>
+</html>
