@@ -1,0 +1,22 @@
+{
+  "name": "リンゴ避けゲーム",
+  "short_name": "リンゴ避け",
+  "description": "落ちてくるリンゴを避け続けるゲーム",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#add8e6",
+  "theme_color": "#add8e6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
